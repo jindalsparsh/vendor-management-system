@@ -1,0 +1,70 @@
+Vendor Registration System Implementation Plan
+This project involves creating a web-based Supplier/Vendor Registration Form based on a provided reference image. The system will use PHP for the backend, MariaDB (MySQL) for the database, and HTML/CSS/JS for the frontend.
+
+User Review Required
+IMPORTANT
+
+This application requires a PHP environment (like XAMPP, WAMP, or LAMP) with a MySQL/MariaDB server running. The 
+database.sql
+ script must be imported before using the form.
+
+Proposed Changes
+Database
+[MODIFY] 
+database.sql
+Update suppliers table:
+Add status column: ENUM('SUBMITTED', 'APPROVED_L1', 'APPROVED_L2', 'ACTIVE', 'REJECTED').
+Add timestamp and user ID columns for approvals (e.g., l1_approved_by, l1_approved_at, etc.).
+Create users table:
+Columns: id, username, password_hash, role (ENUM: 'PURCHASER', 'FINANCE', 'IT').
+Seed Data: Insert default users for testing (admin/purchaser/finance/it) with default passwords.
+Backend (Shared)
+[NEW] 
+db_connect.php
+Centralized database connection script.
+Vendor Facing (Frontend)
+[MODIFY] 
+index.php
+Ensure form submission points to process.php.
+Add success message display.
+[NEW] 
+process.php
+Handle new supplier insertion.
+Set initial status to 'SUBMITTED'.
+Internal Portal (Workflow)
+[NEW] 
+login.php
+Simple login form.
+Validates against users table.
+Sets $_SESSION variables (user_id, role).
+[NEW] 
+dashboard.php
+Protected page (requires login).
+Displays table of suppliers.
+Filtering Logic:
+PURCHASER sees 'SUBMITTED' (needs L1).
+FINANCE sees 'APPROVED_L1' (needs L2).
+IT sees 'APPROVED_L2' (needs L3).
+All can see 'ACTIVE' or 'REJECTED' (readonly).
+[NEW] 
+view_supplier.php
+Read-only view of the supplier form data.
+Actions Section (Dynamic based on Role + Status):
+Example: If Role is Purchaser AND Status is SUBMITTED -> Show "Approve (L1)" and "Reject" buttons.
+[NEW] 
+workflow_action.php
+Endpoint for Approve/Reject actions.
+Updates status logic:
+PURCHASER Approve -> Status: APPROVED_L1
+FINANCE Approve -> Status: APPROVED_L2
+IT Approve -> Status: ACTIVE
+Records who approved and when.
+Verification Plan
+Manual Verification
+Setup: Import updated 
+database.sql
+.
+Vendor Flow: Open index.php, submit a form. Check DB -> Status 'SUBMITTED'.
+Workflow L1: Login as Purchaser (purchaser/password). See record. Approve. Check DB -> Status 'APPROVED_L1'.
+Workflow L2: Login as Finance. See record. Approve. Check DB -> Status 'APPROVED_L2'.
+Workflow L3: Login as IT. See record. Approve. Check DB -> Status 'ACTIVE'.

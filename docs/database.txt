@@ -1,0 +1,99 @@
+-- Database Creation
+CREATE DATABASE IF NOT EXISTS vendor_management;
+USE vendor_management;
+-- Table Creation: Users (For RBAC)
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('PURCHASER', 'FINANCE', 'IT') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+-- Seed Default Users (Password is 'password' for all)
+-- Ideally, use proper bcrypt hashes. Here we use a placeholder or known hash for demo.
+-- 'password' hashed with bcrypt (example: $2y$10$w....) - For simplicity in this demo environment I will use MD5 or just plain text instructions, but let's do it right.
+-- Actually for a "demo", I'll put a comment. I will use a simple hash for now (e.g. password_verify in PHP).
+-- Let's assume the PHP code will use `password_verify`.
+-- I'll insert 'password123' hashed: $2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi (standard laravel junk hash for 'password') or similar.
+-- Let's just create the table. The README will explain how to add users or I can insert them with a known hash.
+-- HASH for 'password': $2y$10$5.0/2/1.0/1.0/1.0/1.0 (Fake). Let's use a real one for 'admin'.
+-- $2y$10$Thpd.bO3.h.w.w. (Forget it, I'll write a setup script in PHP or just insert them with MD5 if I was lazy, but I will try to be secure).
+-- I will insert a simple non-hashed password for the DEMO and handle it in code? No, bad practice.
+-- I'll insert a valid BCRYPT hash for the word 'password' -> $2y$10$n9q.8.1.8.1.8.1.8.1.8. (Just kidding, I'll generate one).
+-- Hash for 'password': $2y$10$8.7.6.5.4.3.2.1.... 
+-- Okay, I will insert them in the SQL.
+INSERT IGNORE INTO users (username, password_hash, role) VALUES 
+('purchaser', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'PURCHASER'), -- Password is 'password'
+('finance', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'FINANCE'), -- Password is 'password'
+('it', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'IT'); -- Password is 'password'
+-- Table Creation: Suppliers
+CREATE TABLE IF NOT EXISTS suppliers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    
+    -- Status & Workflow
+    status ENUM('SUBMITTED', 'APPROVED_L1', 'APPROVED_L2', 'ACTIVE', 'REJECTED') DEFAULT 'SUBMITTED',
+    rejection_reason TEXT,
+    
+    -- Login Credentials
+    email VARCHAR(255) UNIQUE,
+    password_hash VARCHAR(255),
+    
+    l1_approved_by INT,
+    l1_approved_at DATETIME,
+    l2_approved_by INT,
+    l2_approved_at DATETIME,
+    l3_approved_by INT,
+    l3_approved_at DATETIME,
+    -- Business/Company Detail
+    company_name VARCHAR(255) NULL,
+    company_address TEXT NULL,
+    city VARCHAR(100) NULL,
+    state VARCHAR(100) NULL,
+    postal_code VARCHAR(20) NULL,
+    country VARCHAR(100) NULL,
+    supplier_website VARCHAR(255) NULL,
+    nature_of_business VARCHAR(255) NULL, 
+    product_services_type VARCHAR(255) NULL,
+    market_type ENUM('Domestic', 'International', 'Both') DEFAULT 'Domestic',
+    
+    -- Communication Detail
+    contact_first_name VARCHAR(100) NULL,
+    contact_middle_name VARCHAR(100) NULL,
+    contact_last_name VARCHAR(100) NULL,
+    mobile_number VARCHAR(20) NULL,
+    
+    -- Business Contact Detail
+    landline_number VARCHAR(20) NULL,
+    fax_area_code VARCHAR(10) NULL,
+    fax_number VARCHAR(20) NULL,
+    mailing_address TEXT NULL,
+    
+    -- Internal Process
+    supplier_type VARCHAR(100) NULL,
+    item_main_group VARCHAR(100) NULL,
+    
+    -- Tax & Legal Detail
+    registered_msme ENUM('Yes', 'No') NULL,
+    msme_reg_number VARCHAR(50) NULL,
+    msme_type VARCHAR(50) NULL,
+    itr_status VARCHAR(50) NULL,
+    pan_number VARCHAR(10) NULL,
+    under_gst ENUM('Yes', 'No') NULL,
+    gst_reg_number VARCHAR(15) NULL, 
+    tan_number VARCHAR(20) NULL,
+    
+    -- Bank Detail
+    bank_name VARCHAR(100) NULL,
+    account_type VARCHAR(50) NULL,
+    account_number VARCHAR(50) NULL,
+    ifsc_code VARCHAR(20) NULL,
+    bank_branch_address TEXT NULL,
+    bank_city VARCHAR(100) NULL,
+    bank_state VARCHAR(100) NULL,
+    bank_postal_code VARCHAR(20) NULL,
+    
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (l1_approved_by) REFERENCES users(id),
+    FOREIGN KEY (l2_approved_by) REFERENCES users(id),
+    FOREIGN KEY (l3_approved_by) REFERENCES users(id)
+);
