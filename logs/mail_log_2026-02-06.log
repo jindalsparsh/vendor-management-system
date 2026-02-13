@@ -1,0 +1,56 @@
+[2026-02-06 15:41:24] To: sparsh.jindal@swanrose.co | Subject: Action Required: Complete Vendor Onboarding Form
+Message:
+Dear Vendor,
+
+Thank you for your request to onboard with Jagatjit Industries Limited as a vendor.
+
+To proceed with your onboarding request, you are required to complete the vendor onboarding form. For this purpose, a vendor portal account has been created for you.
+
+Please log in to the vendor portal using the credentials below and complete the onboarding form with the required business, banking, and statutory details.
+
+Login Details
+Email ID: sparsh.jindal@swanrose.co
+Temporary Password: jil
+
+Vendor Portal Link
+http://192.168.1.14/sjvms/public/login.php
+
+Once you submit the onboarding form, your application will be taken up for internal verification and approval.
+Please note that submission of the form does not imply approval or successful onboarding. You will be notified once the review process is completed.
+
+Important
+- We recommend changing your password after your first login.
+- Ensure all details are accurate to avoid delays during verification.
+- You can track your application status by logging into the vendor portal.
+
+If you face any issues while accessing the portal or completing the form, please contact us at purchase@jagatjit.com.
+
+Regards,
+Purchase Team
+Jagatjit Industries Limited
+www.jagatjit.com
+--------------------------------------------------
+[2026-02-06 15:59:49] [FAILURE] To: sparsh.jindal@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-06 16:01:27] [FAILURE] To: sparsh.jindal@swanrose.co | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-06 16:01:30] [FAILURE] To: sparsh.jindal@swanrose.co | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-06 16:01:56] [FAILURE] To: sparsh.jindal@swanrose.co | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-06 16:01:58] [FAILURE] To: sparsh.jindal@swanrose.co | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-06 16:01:58] [FAILURE] To: sparsh.jindal@swanrose.co | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-06 16:02:05] [FAILURE] To: sparsh.jindal@swanrose.co | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-06 16:18:40] [FAILURE] To: test13@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------

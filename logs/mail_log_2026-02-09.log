@@ -1,0 +1,35 @@
+[2026-02-09 13:53:42] [FAILURE] To: ajeet.singh@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-09 13:54:27] [FAILURE] To: prince@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-09 14:46:26] [FAILURE] To: purchaser1@gmail.com | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-09 14:46:46] [FAILURE] To: purchase2@gmail.com | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-09 15:19:38] [FAILURE] To: sparsh.jindal@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+Error: SMTP Error: Could not authenticate.
+--------------------------------------------------
+[2026-02-09 15:26:02] [SUCCESS] To: sparsh.jindal@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 15:27:19] [SUCCESS] To: raj.rajpoot@jagajit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 15:29:38] [SUCCESS] To: raj.rajpoot@jagajit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 15:30:24] [SUCCESS] To: sparsh.jindal@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 15:31:15] [SUCCESS] To: sparsh.jindal@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 15:33:22] [SUCCESS] To: raj.rajpoot@jagajit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 15:37:10] [SUCCESS] To: raj.rajpoot@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 16:47:26] [SUCCESS] To: raj.rajpoot@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 17:22:05] [SUCCESS] To: sparsh.jindal@swanrose.co | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
+[2026-02-09 18:08:22] [SUCCESS] To: sparsh.jindal@jagatjit.com | Subject: Action Required: Complete Vendor Onboarding Form
+--------------------------------------------------
