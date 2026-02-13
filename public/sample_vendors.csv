@@ -1,0 +1,4 @@
+email,password,company_name,company_address,city,state,postal_code,contact_first_name,mobile_number,pan_number,bank_name,account_number,ifsc_code
+vendor_a@jil.com,Welcome@123,Jagalit Brews,"Plot 12, Industrial Area",Mumbai,Maharashtra,400001,Amit,9820012345,ABCDE1234F,HDFC Bank,50100123456789,HDFC0000123
+vendor_b@jil.com,Welcome@123,Sunrise Spirit,"Sector 5, Tech Park",Delhi,Delhi,110001,Priya,9123456789,FGHIJ5678K,ICICI Bank,000101234567,ICIC0000001
+vendor_c@jil.com,Welcome@123,Global Glass,"MG Road, Opp Metro",Bangalore,Karnataka,560001,Rajesh,8123456780,LMNOP9012M,SBI,11223344556,SBIN0001234
